@@ -7,9 +7,10 @@
     color: #fff;
   }
   
+  
   .app:before {
     content: '';
-    background: url('../../images/sunset.jpg') no-repeat center center/cover;
+    background: url('../../images/cold.jpg') no-repeat center center/cover;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -17,23 +18,35 @@
     left: 0;
     z-index: -1;
   }
+
+  .warm{
+    background-image: url('../../images/xxx.jpg');
+    background-position: center;
+    object-fit: cover;
+    width: 100%;
+    height: 150vh;
+    color: white;
+     
+  }
   
-  .app .search {
+ .search {
     text-align: center;
     padding: 1rem;
   }
   
-  .app input {
+ .input {
     padding: .7rem 1.5rem;
     font-size: 1.2rem;
     border-radius: 25px;
     border: 1px solid rgba(255,255,255, 0.8);
-    background: rgba(255,255,255, 0.1);
-    color: #f8f8f8;
+    background-color: rgba(255,255,255, 1);
+    color: black;
+    outline: none;
   }
   
   ::placeholder {
-    color: #f8f8f8;
+    color:black;
+    font-size: 14px;
   }
 .container {
     max-width: 700px;
@@ -41,25 +54,28 @@
     margin: auto;
     padding: 0 1rem;
     position: relative;
-    top: 10%;
+    top: 5%;
     display: flex;
     flex-direction: column;
    
   }
   
-  .app .top {
+   .top {
     width: 100%;
     margin: 1rem auto;
   }
   
-  .app .description {
+  .description {
     position: relative;
-    right: -90%;
+    right: -80%;
     transform-origin: 0 0;
     transform: rotate(269deg);
   }
+  @media (max-width:320px) {
+    
+  }
   
-  .app .bottom {
+   .bottom {
     display: flex;
     justify-content: space-evenly;
     text-align: center;
@@ -72,4 +88,48 @@
   
   .bold {
     font-weight: 700;
+  }
+  .icon{
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      align-items: center;
+      margin-bottom: 5%;
+  }
+
+  .icon__img{
+      width: 50px;
+      height: 50px;
+      border-radius: 50px;
+  }
+  .btn_container{
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+  }
+  .app .btn{
+      background-color: transparent;
+      color: white;
+      cursor: pointer;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s ease-in all;
+      outline: none;
+  }
+  .warm .btn{
+    background-color: transparent;
+    color: black;
+    cursor: pointer;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s ease-in all;
+    outline: none;
+}
+
+  .btn:hover{
+      transform: scale(1.1);
+      transition: 0.3s ease-in all;
   }

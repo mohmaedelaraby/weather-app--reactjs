@@ -8,6 +8,7 @@ function Home() {
     const [lng,getLng]=useState(29.8549248)
     const [cit,getCity]=useState("city");
     const [degree,getDegree]=useState("0");
+    const [degreeC,getDegreeC]=useState("0");
     const [date,getDate]=useState(" ");
     const [pressre,getPersse]=useState("0")
     const [desc,getDesc]=useState("0")
@@ -55,6 +56,7 @@ function Home() {
                 setDAta(res.data);
                 getDate(res.data.data.weather[0].date)
                 getDegree(res.data.data.current_condition[0].FeelsLikeF)
+                getDegreeC(res.data.data.current_condition[0].FeelsLikeC)
                 getPersse(res.data.data.current_condition[0].pressure)
                 getWind(res.data.data.current_condition[0].windspeedKmph)
                 gethUm(res.data.data.current_condition[0].humidity)
@@ -73,6 +75,7 @@ function Home() {
            setDAta(res.data);
            getDate(res.data.data.weather[0].date)
            getDegree(res.data.data.current_condition[0].FeelsLikeF)
+           getDegreeC(res.data.data.current_condition[0].FeelsLikeC)
            getPersse(res.data.data.current_condition[0].pressure)
            getWind(res.data.data.current_condition[0].windspeedKmph)
            gethUm(res.data.data.current_condition[0].humidity)
@@ -90,6 +93,7 @@ const searchLocation = (event) => {
            getCity(res.data.data.request[0].query)
            getDate(res.data.data.weather[0].date)
            getDegree(res.data.data.current_condition[0].FeelsLikeF)
+           getDegreeC(res.data.data.current_condition[0].FeelsLikeC)
            getPersse(res.data.data.current_condition[0].pressure)
            getWind(res.data.data.current_condition[0].windspeedKmph)
            gethUm(res.data.data.current_condition[0].humidity)
@@ -102,23 +106,32 @@ const searchLocation = (event) => {
     
   return (
       <>
-      <button onClick={position}>cur</button>
-      <div className="app">
+     
+      <div className={(degreeC > 16) ? 'warm' : 'app'}>
       <div className="search">
         <input
           value={location}
           onChange={event => setLocation(event.target.value)}
           onKeyPress={searchLocation}
           placeholder='Enter Location'
-          type="text" />
+          type="text"
+          className='input' />
+          
+      </div>
+      <div className="btn_container">
+      <button className='btn' onClick={position}> Get Your Location Weather</button>
       </div>
       <div className="container">
         <div className="top">
           <div className="location">
-            <p>{cit} {date}</p>
+          <div  className='icon'>
+            <img src={ico} alt="icon" className='icon__img'/>
+            </div>
+            <p>{cit}</p>
+            <p>{date}</p>
           </div>
           <div className="temp">
-            {<h1>{degree}°F</h1>}
+            {<h1>{degreeC}°C</h1>}
             
           </div>
           <div className="description">
