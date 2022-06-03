@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './Home.css'
 import axios from 'axios'
 import Radar from 'react-d3-radar';
+import BarChart from './Table/BarChart';
 
 function Home() {
     const [dataa, setDAta] = useState([])
@@ -107,8 +108,8 @@ function Home() {
 
     return (
         <>
-          <div>
-  
+            <div>
+
             </div>
 
             <div className={(degreeC > 16) ? 'warm' : 'app'}>
@@ -146,21 +147,30 @@ function Home() {
 
                     <div className="bottom">
                         <div className="feels">
+                        <p>Feels Like</p>
                             {<p className='bold'>{degree}°F</p>}
-                            <p>Feels Like</p>
+                            
                         </div>
                         <div className="humidity">
+                        <p>Humidity</p>
                             {<p className='bold'>{humidity}%</p>}
-                            <p>Humidity</p>
+                           
                         </div>
                         <div className="wind">
+                        <p>Wind Speed</p>
                             {<p className='bold'>{widspeed} MPH</p>}
-                            <p>Wind Speed</p>
+                            
+                        </div>
+                        <div className="wind">
+                        <p>Pressure</p>
+                            {<p className='bold'>{pressre} PA</p>}
+                            
                         </div>
                     </div>
 
                 </div>
             </div>
+         
         </>
     )
 }
