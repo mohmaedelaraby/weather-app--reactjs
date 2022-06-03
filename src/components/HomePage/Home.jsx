@@ -19,8 +19,8 @@ function Home() {
     const [humidity, gethUm] = useState("0")
     const [location, setLocation] = useState('');
 
-    const firUrl = `https://api.worldweatheronline.com/premium/v1/weather.ashx?key=98a46488b5e147cf8ea75600222905&q=${lat !== 0},${lng !== 0}&format=json`
-    const secUrl = `https://api.worldweatheronline.com/premium/v1/weather.ashx?key=98a46488b5e147cf8ea75600222905&q=${location}&format=json`
+    const firUrl = `http://api.worldweatheronline.com/premium/v1/weather.ashx?key=98a46488b5e147cf8ea75600222905&q=${lat},${lng}&format=json`
+    const secUrl = `http://api.worldweatheronline.com/premium/v1/weather.ashx?key=98a46488b5e147cf8ea75600222905&q=${location}&format=json`
 
 
 
@@ -54,7 +54,7 @@ function Home() {
 
         axios.get(firUrl).then(res => {
             console.log(" crr-response : : :", res.data);
-            getCity(res.data.data.request[0].query)
+            getCity("Your City "+res.data.data.request[0].query)
             setDAta(res.data);
             getDate(res.data.data.weather[0].date)
             getDegree(res.data.data.current_condition[0].FeelsLikeF)
@@ -112,7 +112,7 @@ function Home() {
 
             </div>
 
-            <div className={(degreeC > 16) ? 'warm' : 'app'}>
+            <div className={(degreeC > 19) ? 'warm' : 'app'}>
                 <div className="search">
                     <input
                         value={location}
