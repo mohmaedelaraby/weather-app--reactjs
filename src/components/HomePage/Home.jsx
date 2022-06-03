@@ -19,8 +19,8 @@ function Home() {
     const [humidity, gethUm] = useState("0")
     const [location, setLocation] = useState('');
 
-    const firUrl = `http://api.worldweatheronline.com/premium/v1/weather.ashx?key=98a46488b5e147cf8ea75600222905&q=${lat},${lng}&format=json`
-    const secUrl = `http://api.worldweatheronline.com/premium/v1/weather.ashx?key=98a46488b5e147cf8ea75600222905&q=${location}&format=json`
+    const firUrl = `https://api.worldweatheronline.com/premium/v1/weather.ashx?key=98a46488b5e147cf8ea75600222905&q=${lat},${lng}&format=json`
+    const secUrl = `https://api.worldweatheronline.com/premium/v1/weather.ashx?key=98a46488b5e147cf8ea75600222905&q=${location}&format=json`
 
 
 
